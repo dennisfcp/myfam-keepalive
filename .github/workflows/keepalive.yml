@@ -1,0 +1,19 @@
+name: keepalive
+
+# Keeps the free Render web service awake (it sleeps after 15 minutes without traffic).
+# GitHub cron is UTC: 06:00-22:59 UTC is 07:00-23:59 in Lisbon summer time (06:00-22:59 in winter).
+# Runs are often delayed by GitHub, so this is best effort.
+on:
+  schedule:
+    - cron: '0,14,28,42,56 6-22 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Ping /health
+        run: curl -fsS --retry 3 --retry-delay 5 --max-time 60 https://myfam-api.onrender.com/health
