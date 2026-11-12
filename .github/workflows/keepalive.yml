@@ -5,7 +5,7 @@ name: keepalive
 # Runs are often delayed by GitHub, so this is best effort.
 on:
   schedule:
-    - cron: '0,14,28,42,56 6-22 * * *'
+    - cron: '3-58/5 6-22 * * *'
   workflow_dispatch:
 
 permissions: {}
