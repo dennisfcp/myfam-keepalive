@@ -16,4 +16,4 @@ jobs:
     timeout-minutes: 3
     steps:
       - name: Ping /health
-        run: curl -fsS --retry 3 --retry-delay 5 --max-time 60 https://myfam-api.onrender.com/health
+        run: curl -fsS --retry 3 --retry-delay 5 --max-time 60 https://myfam-api-muoo.onrender.com/health
